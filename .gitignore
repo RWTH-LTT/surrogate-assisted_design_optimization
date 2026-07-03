@@ -1,0 +1,44 @@
+# virtual environment
+venv/*
+
+# docs
+
+# cache
+**/__pycache__/*
+tests/__pycache__/*
+
+# compiled files
+*.pyc
+
+# logs
+*.log
+*Log.txt
+# gifs
+*.gif
+
+# InputData
+*Components.xlsx
+ts_availability_solar_collector.csv
+*_test.yaml
+**/old/*
+
+# ComputedInput_Data
+**/ComputedInput_Data/*
+**/timeseries_tsa_export/*
+# Output_Data
+**/Output_Data/*
+# Keep file
+!**/Output_Data/READ_ME.txt
+!**/ComputedInput_Data/READ_ME.txt
+
+*.html
+**/operational_optimization*
+# model.ilp and model.mps files for debugging
+**/model.ilp
+**/model.mps
+
+# files from jupyterhub
+*-checkpoint.*
+
+# hpc
+**.sh~

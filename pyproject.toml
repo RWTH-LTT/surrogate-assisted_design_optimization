@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sm"
+version = "0.1.1"
+description = "Repository for surrogate-assisted design optimization."
+readme = "README.md"
+dependencies = [
+    "numpy==1.26.0",
+    "matplotlib==3.9.2",
+    "pandas==2.2.3",
+    "skorch==1.1.0",
+    "scipy==1.14.1",
+    "plotly==6.5.2",
+    "pyYAML==6.0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pyomo==6.8.0",
+    "tsam==2.3.6", 
+    "bokeh==3.6.1",
+    "PyQT6",
+    "ipykernel",
+    "ipython==8.9.0",
+    "scikit-learn==1.5.2",
+    "kmedoids==0.5.2",
+    "ipympl",
+    "gurobipy==12.0.0",
+    "torch==2.6.0",
+    "streamlit==1.53.0",
+]
+
+webapp = [
+    "streamlit==1.53.0",
+    # torch handled separately (see below)
+]
+
+[tool.hatch.build.targets.wheel]
+# Defining where the source code lives
+# Use 'src/core' and 'src/sm' as packages inside the src directory
+packages = [
+    "src/core",
+    "src/sm",
+]

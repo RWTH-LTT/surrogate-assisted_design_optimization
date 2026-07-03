@@ -1,0 +1,3 @@
+time_horizon_a: 15 # years
+discount_rate_percent: 0.05 # between 0 and 1. 0 = 0%; 1 = 100%.
+maximum_available_area: 0.0 # m^2 | Not used | Maximum available Area (mostly for PV and solar collectors)

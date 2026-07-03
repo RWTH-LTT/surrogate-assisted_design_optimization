@@ -1,0 +1,46 @@
+# Format:
+# electricity:
+#   doc: 'electricity'
+#   importable: True
+#   exportable: True
+#   allow_lost_load: False # If True, it is possible to serve less energy than demanded, but punished with slack term.
+#   value_of_lost_load : 100 # EUR/kWh
+#   # price_sell_follows_price_buy
+#   price_sell_follows_price_buy: True # If true:
+#   # price_sell(t) = price_buy(t) - ( 1 - price_sell_buy_ratio ) * abs(price_buy(t))
+#   price_sell_buy_ratio: 0.375 # <1: price_sell < price_buy | >1: price_sell > price_buy
+
+#   temperature: 100 # °C - is needed for the calculation of Carnot COP, not used 
+
+#   include_extreme_pricebuy_peroid: True # Defaults to False (if nothing is given)
+#   include_extreme_demand_peroid: True # Defaults to False (if nothing is given)
+
+electricity:
+  doc: 'electricity'
+  importable: True
+  exportable: True
+  allow_lost_load: False
+  value_of_lost_load : 100 # EUR/kWh
+  price_sell_follows_price_buy: True
+  price_sell_buy_ratio: 0.375
+  include_extreme_pricebuy_peroid: True
+gas:
+  doc: 'natural gas'
+  importable: True
+  exportable: False
+  allow_lost_load: False
+  value_of_lost_load : 100 # EUR/kWh
+heat:
+  doc: 'heat'
+  importable: False
+  exportable: False
+  allow_lost_load: True
+  value_of_lost_load : 100 # EUR/kWh
+  include_extreme_demand_peroid: True
+cold:
+  doc: 'cold'
+  importable: False
+  exportable: False
+  allow_lost_load: True
+  value_of_lost_load : 100 # EUR/kWh
+  include_extreme_demand_peroid: True

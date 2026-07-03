@@ -1,0 +1,179 @@
+# Format:
+# Production process:
+#   B: # technology identifier
+#     name: gas boiler
+#     display_name: GB # display name in plots, ...
+#     category: production # production or storage
+#     reference: heat # specifies the product which the potential capacity refers to
+#     efficiency: # for LP, there is a constant efficiency
+#     # (max abs value of ref-product and corresponding value of other products)
+#     # multi-input and multi-output processes are prossible
+#       gas: # negative values indicate consumption
+#         - -1.11155555555556
+#       heat: # positive values indicate generation
+#         - 1.0
+#     lifetime_a: 10 # years | (expected) lifetime
+#     investment_cost_EUR_kW: 67.32 # €/kW | specific investment costs
+#     maintenance_cost_percent: 1.5 # % of I/year | specific O&M costs
+#     operational_cost_per_kWh: 0.0 # €/kWh | Operational Cost per Energy of Reference_Product produced
+#     potential_capacity_kW: 10000 # kW | maximal capacity that can be installed with a single component
+#     default_capacity: 5000 # kW | default value for WebApp
+#     affect_feasibility: True # if the sizing of the technology affects feasibility
+  
+# Storage process:
+#   TES:
+#     name: thermal energy storage
+#     display_name: TES # display name in plots, ...
+#     category: storage
+#     reference: heat
+#     efficiency_deposit: 0.95 # relative effiency between 0 and 1 (1 = no losses)
+#     efficiency_withdrawal: 0.95 # relative effiency between 0 and 1 (1 = no losses)
+#     storage_loss_percent: 0.5 # percent loss of storage level per hour, between 0 and 100 (0 = no losses)
+#     minimal_level: 0 # percentage of potential capacity
+#     capacity_ratio: 1 # kW/kWh | ratio of the maximal withdrawal or deposit per kWh nominal capacity
+#     lifetime_a: 10
+#     investment_cost_EUR_kWh: 27.5  # €/kWh
+#     maintenance_cost_percent: 1    # % of I/year
+#     potential_capacity_kWh: 100000 # kWh
+#     default_capacity: 80000 # kWh | default value for webapp, ...
+#     affect_feasibility: True # if the sizing of the technology affects feasibility
+
+technologies:
+  B:
+    name: gas boiler
+    display_name: GB
+    category: production
+    reference: heat
+    efficiency:
+      gas:
+        - -1.11155555555556
+      heat:
+        - 1.0
+    lifetime_a: 10 # years
+    investment_cost_EUR_kW: 67.32 # €/kW
+    maintenance_cost_percent: 1.5 # % of I/year
+    operational_cost_per_kWh: 0.0 # €/kWh
+    potential_capacity_kW: 10000 # kW
+    default_capacity: 5000 # kW
+    affect_feasibility: True
+  CHP:
+    name: combined heat and power
+    display_name: CHP 
+    category: production
+    reference: heat
+    efficiency:
+      gas:
+        - -2.083934183
+      heat:
+        - 1.0
+      electricity:
+        - 0.811512037
+    lifetime_a: 10 # years
+    investment_cost_EUR_kW: 403.11 # €/kW
+    maintenance_cost_percent: 10 # % of I/year
+    operational_cost_per_kWh: 0.0 # €/kWh
+    potential_capacity_kW: 8000 # kW
+    default_capacity: 7000 # kW
+    affect_feasibility: True
+  CC:
+    name: compression chiller
+    display_name: CC
+    category: production
+    reference: cold
+    efficiency: 
+      electricity:
+        - -0.177400722021661
+      cold:
+        - 1.0
+    lifetime_a: 10 # years
+    investment_cost_EUR_kW: 191.92 # €/kW
+    maintenance_cost_percent: 4 # % of I/year
+    operational_cost_per_kWh: 0.0 # €/kWh
+    potential_capacity_kW: 16000 # kW
+    default_capacity: 10000 # kW
+    affect_feasibility: True
+  AC:
+    name: absorption chiller
+    display_name: AC
+    category: production
+    reference: cold
+    efficiency:
+      heat:
+        - -1.46761194029851
+      cold:
+        - 1.0
+    lifetime_a: 10 # years
+    investment_cost_EUR_kW: 249.54 # €/kW
+    maintenance_cost_percent: 1 # % of I/year
+    operational_cost_per_kWh: 0.0 # €/kWh
+    potential_capacity_kW: 9000 # kW
+    default_capacity: 1000 # kW
+    affect_feasibility: True
+  HTHP:
+    name: high-temperature heat pump
+    display_name: HTHP
+    category: production
+    reference: electricity
+    # product_influenced_by_carnot_efficiency: heat # The ambient Temperature has an effect on the COP and thus the heat ouput
+    efficiency:
+      electricity:
+        - -1.0
+      heat:
+        - 2.0
+      # Carnot efficiency is not used!
+      # carnot_efficiency: # carnot_efficiency = COP_real / COP_carnot -> these values have to be <1
+      #   - 0.5
+    lifetime_a: 20
+    investment_cost_EUR_kW: 1300 # 650 EUR per kW_th. AS reference is electricity, the investment cost per kW_el is double
+    maintenance_cost_percent: 1
+    operational_cost_per_kWh: 0.0 # €/kWh
+    potential_capacity_kW: 10000 # kW
+    default_capacity: 7000 # kW
+    affect_feasibility: True
+  PV:
+    name: photovoltaics
+    display_name: PV
+    category: production
+    reference: electricity
+    efficiency:
+      electricity:
+        - 1.0
+    lifetime_a: 30 # DAE 22 Rooftop for 2020
+    investment_cost_EUR_kW: 870 # DAE 22 Rooftop for 2020
+    maintenance_cost_percent: 1.218 # DAE 22 Rooftop for 2020
+    operational_cost_per_kWh: 0.0 # €/kWh
+    potential_capacity_kW: 5000 # kW
+    default_capacity: 4000 # kW
+    affect_feasibility: False
+  TES:
+    name: thermal energy storage
+    display_name: TES
+    category: storage
+    reference: heat
+    efficiency_deposit: 0.95 # between 0 and 1 (1 = no losses)
+    efficiency_withdrawal: 0.95 # between 0 and 1 (1 = no losses)
+    storage_loss_percent: 0.5 # between 0 and 100 (0 = no losses)
+    minimal_level: 0
+    capacity_ratio: 1 # kW/kWh
+    lifetime_a: 10
+    investment_cost_EUR_kWh: 27.5  # €/kWh
+    maintenance_cost_percent: 1    # % of I/year
+    potential_capacity_kWh: 100000 # kWh
+    default_capacity: 80000
+    affect_feasibility: True
+  battery:
+    name: battery energy storage
+    display_name: BAT # display name in plots, ...
+    category: storage
+    reference: electricity
+    efficiency_deposit: 0.95 # between 0 and 1 (1 = no losses)
+    efficiency_withdrawal: 0.95 # between 0 and 1 (1 = no losses)
+    storage_loss_percent: 0.0042 # between 0 and 100 (0 = no losses)
+    minimal_level: 0
+    capacity_ratio: 1 # kW/kWh
+    lifetime_a: 15 # DAE datasheet energy storgae, 180 Li Ion, 2025
+    investment_cost_EUR_kWh: 290  # €/kWh | DAE datasheet energy storgae, 180 Li Ion, 2025
+    maintenance_cost_percent: 2.5 # % of I/year
+    potential_capacity_kWh: 10000 # kWh
+    default_capacity: 8000
+    affect_feasibility: False

@@ -1,0 +1,105 @@
+# Format:
+#     ts_demand_el:
+#       doc: scales the electricity demand with peak an mean
+#       ts_type: demand # 'demand', 'pricebuy', 'pricesell', or 'availability'
+#       product: electricity # only for 'demand', 'pricebuy', or 'pricesell'
+#       process: PV # only for 'availability'
+#       affect_feasibility: False # Boolean, if the timeseries affects feasibility
+#       unit: kW # Unit of timeseries. NOTE: no unit handling is implemented.
+#       display_name: Electricity Demand # Name that is displayed on WebApp
+#       param: # Use either: a) only mean, b) mean and peak, c) mean and rel_peak, or d) interpolate
+#         mean: # scales mean of the timeseries (can be used for 'demand', 'pricebuy', 'pricesell')
+#           min: 3000 # kW
+#           max: 6000 # kW
+#         peak: # scales peak of the timeseries (can be used for 'demand', 'pricebuy', 'pricesell')
+#           min: 3000 # kW
+#           max: 8000 # kW
+#         relpeak: # peak relative to the mean value  (can be used for 'pricebuy' only)
+#           min: 1.5 # low variation
+#           max: 5 # high variation
+#         interpolate: # timeseries interpolation is further specified in time_series.yaml
+#           # (can be used for 'availability' only)
+#           default: 0
+#           min: 0 # 0: only the first timeseries is used 
+#           max: 1 # 1: only the second timeseries is used
+
+timeseries_scaling:
+  standard:
+    ts_demand_el:
+      doc: scales the electricity demand with peak an mean
+      ts_type: demand
+      product: electricity
+      affect_feasibility: False
+      unit: kW
+      display_name: Electricity Demand
+      param:
+        mean:
+          min: 3000 # kW
+          max: 6000 # kW
+        peak:
+          min: 4000 # kW
+          max: 8000 # kW
+    ts_demand_heat:
+      doc: scales the heating demand with peak an mean
+      ts_type: demand
+      product: heat
+      affect_feasibility: True
+      unit: kW
+      display_name: Heating Demand
+      param:
+        mean:
+          min: 3000 # kW
+          max: 9000 # kW
+        peak:
+          min: 4000 # kW
+          max: 10000 # kW
+    ts_demand_cold:
+      doc: scales the cooling demand with peak an mean
+      ts_type: demand
+      product: cold
+      affect_feasibility: True
+      unit: kW
+      display_name: Cooling Demand
+      param:
+        mean:
+          min: 1000 # kW
+          max: 3500 # kW
+    ts_pricebuy_el:
+      doc: scales the purchase price of electricity
+      ts_type: pricebuy
+      product: electricity
+      affect_feasibility: False
+      unit: EUR/kWh
+      display_name: Electricity Price
+      param:
+        mean:
+          min: 0.05 # EUR/kWh
+          max: 0.2 # EUR/kWh
+        relpeak:
+          min: 1.5
+          max: 5
+    ts_pricebuy_gas:
+      doc: scales the purchase price of natural gas
+      ts_type: pricebuy
+      product: gas
+      affect_feasibility: False
+      unit: EUR/kWh
+      display_name: Natural Gas Price
+      param:
+        mean:
+          min: 0.018 # EUR/kWh
+          max: 0.2 # EUR/kWh
+    ts_avail_pv:
+      doc: interpolates the availability of pv
+      ts_type: availability
+      process: PV
+      affect_feasibility: False
+      unit: "-"
+      display_name: PV Profile Interpolation
+      param:
+        interpolate:
+          default: 0
+          min: 0
+          max: 1
+  no_scaling:
+    {}

@@ -1,0 +1,11 @@
+uncertainties: 'uncertainties.yaml'
+config: 'config_10_N128_E1k.yaml'
+technologies: 'technologies_ID14.yaml'
+designs: 'designs.yaml'
+superstructures: 'superstructures.yaml'
+timeseries: 'time_series_ID12.yaml'
+timeseries_scaling: 'time_series_scaling_ID11.yaml'
+general_param: 'general_param.yaml'
+products: 'products_ID12.yaml'
+technology_categories: 'technology_categories.yaml'
+experiment_ID: 'ID14_10' # identifier for these specific configurations

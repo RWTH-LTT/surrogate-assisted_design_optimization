@@ -1,0 +1,138 @@
+optimization: # the subdicts correspond to different optimization modes
+  stochastic_design:
+    MIP_gap: 0.005    # - | relative optimality gap of MIP model
+    solver_options: # options for gurobi solver
+      ResultFile: 'model.ilp'
+      LogToConsole: 1
+      OutputFlag: 1
+    timelimit: 86400 # seconds, one day
+    custom_logFile: 'gurobi.log'
+  deterministic_operation:
+    MIP_gap: 0.0005    
+    solver_options:
+      ResultFile: 'model.ilp'
+      LogToConsole: 1
+      OutputFlag: 1
+    timelimit: 3600 # seconds
+    # custom_logFile: None
+  deterministic_design:
+    MIP_gap: 0.005
+    solver_options:
+      ResultFile: 'model.ilp'
+      LogToConsole: 1
+      OutputFlag: 1
+    timelimit: 3600 # seconds
+    # custom_logFile: None
+  max_overcapacity:
+    MIP_gap: 0.005
+    solver_options:
+      ResultFile: 'model.ilp'
+      LogToConsole: 1
+      OutputFlag: 1
+    timelimit: 3600 # seconds
+  feasible_hull:
+    MIP_gap: 0.005
+    solver_options:
+      ResultFile: 'model.ilp'
+      LogToConsole: 1
+      OutputFlag: 1
+    timelimit: 3600 # seconds
+  near_optimal:
+    MIP_gap: 0.005
+    solver_options:
+      ResultFile: 'model.ilp'
+      LogToConsole: 1
+      OutputFlag: 1
+    timelimit: 3600 # seconds
+time_series_aggregation:
+  noTypicalPeriods: 5
+  hoursPerPeriod: 24
+  segmentation: False
+  clusterMethod: 'hierarchical'
+  total_hours: 8760 # number of hours which should be represented by the aggregated timeseries. Is not necessarily equal to the number of hours in the input timeseries.
+  tsa_path:  'timeseries_tsa_export' # Relative path from DATA_IN
+  load_tsa_inputs: False
+  extremePeriodMethod: 'None' # if a method other than 'None' is selected, extreme
+  # periods are included for products with 'include_extreme_demand_peroid' in products.yaml
+config_uncertainties:
+  name_uncertainties: 'no_uncertainty' # 'uncertainties_only_el' #'uncertainties_standard' # definition, which uncertainties are used from uncerainties.yaml
+  uncertain_parameter_names: []
+timeseries_scaling: 'standard' # key from time_series_scaling.yaml
+model_formulation: 'LP' # 'MILP' or 'LP'
+superstructure_name: 'superstructure_JP1_8D'
+N_scenarios: 5
+seed: 0
+# surrogate_models:
+#   ANN_4L: # OPEX without loss of load
+#     N_layers: 4
+#     N_nodes: 128
+#     lr: 0.0001 # learning rate
+#     weight_decay: 0.000001 # weight decay
+#     batch_size: 256
+#     N_epochs: 1_000
+#     test_size: 0.2 # relative part of the data set used for testing AFTER training
+#     val_size: 0.1
+#     act_fun: 'ReLU' # Activation function, must be in ['ReLU', 'Linear']
+#     act_out: None # Actication function behind the last layer ('ReLU' or None)
+#     checkpoints: False
+#   ANN_4L_80k: # ANN with 4 layers.
+#     N_layers: 4
+#     N_nodes: 128
+#     lr: 0.0001 # learning rate
+#     weight_decay: 0.000001 # weight decay
+#     batch_size: 256
+#     N_epochs: 1_000 # For combined training and validation set size of 40k
+#     test_size: 0.2 # relative part of the data set used for testing AFTER training
+#     val_size: 0.1
+#     act_fun: 'ReLU' # Activation function, must be in ['ReLU', 'Linear']
+#     act_out: None # Actication function behind the last layer ('ReLU' or None)
+#   ANN_4L_40k: # ANN with 4 layers.
+#     N_layers: 4
+#     N_nodes: 128
+#     lr: 0.0001 # learning rate
+#     weight_decay: 0.000001 # weight decay
+#     batch_size: 256
+#     N_epochs: 2_000 # For combined training and validation set size of 40k
+#     test_size: 0.2 # relative part of the data set used for testing AFTER training
+#     val_size: 0.1
+#     act_fun: 'ReLU' # Activation function, must be in ['ReLU', 'Linear']
+#     act_out: None # Actication function behind the last layer ('ReLU' or None)
+#     checkpoints: False
+#   ANN_4L_20k: # ANN with 4 layers.
+#     N_layers: 4
+#     N_nodes: 128
+#     lr: 0.0001 # learning rate
+#     weight_decay: 0.000001 # weight decay
+#     batch_size: 256
+#     N_epochs: 4_000 # For combined training and validation set size of 20k
+#     test_size: 0.2 # relative part of the data set used for testing AFTER training
+#     val_size: 0.1
+#     act_fun: 'ReLU' # Activation function, must be in ['ReLU', 'Linear']
+#     act_out: None # Actication function behind the last layer ('ReLU' or None)
+#     checkpoints: False
+#   ANN_4L_10k: # ANN with 4 layers.
+#     N_layers: 4
+#     N_nodes: 128
+#     lr: 0.0001 # learning rate
+#     weight_decay: 0.000001 # weight decay
+#     batch_size: 256
+#     N_epochs: 8_000 # For combined training and validation set size of 10k
+#     test_size: 0.2 # relative part of the data set used for testing AFTER training
+#     val_size: 0.1
+#     act_fun: 'ReLU' # Activation function, must be in ['ReLU', 'Linear']
+#     act_out: None # Actication function behind the last layer ('ReLU' or None)
+#     checkpoints: False
+#   ANN_4L_5k: # ANN with 4 layers.
+#     N_layers: 4
+#     N_nodes: 128
+#     lr: 0.0001 # learning rate
+#     weight_decay: 0.000001 # weight decay
+#     batch_size: 256
+#     N_epochs: 16_000 # For combined training and validation set size of 5k
+#     test_size: 0.2 # relative part of the data set used for testing AFTER training
+#     val_size: 0.1
+#     act_fun: 'ReLU' # Activation function, must be in ['ReLU', 'Linear']
+#     act_out: None # Actication function behind the last layer ('ReLU' or None)
+#     checkpoints: False
+# hybrid_surrogate_model_options:
+#   maxiter: 10000

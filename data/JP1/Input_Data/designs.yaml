@@ -1,0 +1,35 @@
+designs:
+  ES-1: # no design in the publication is parametrized via designs.yaml
+    AC-1:
+      nominal_capacity_kW: 2000
+      type: AC
+    AC-2:
+      nominal_capacity_kW: 2000
+      type: AC
+    AC-3:
+      nominal_capacity_kW: 1000
+      type: AC
+    CC-1:
+      nominal_capacity_kW: 15000
+      type: CC
+    B:
+      nominal_capacity_kW: 10000
+      type: B
+    B_1:
+      nominal_capacity_kW: 1000
+      type: B
+    B_2:
+      nominal_capacity_kW: 2000
+      type: B
+    CHP-1:
+      nominal_capacity_kW: 3000
+      type: CHP
+    CHP-2:
+      nominal_capacity_kW: 3000
+      type: CHP
+    TES:
+      nominal_capacity_kWh: 10000
+      type: TES
+    PV:
+      nominal_capacity_kW: 500
+      type: PV

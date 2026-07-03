@@ -1,0 +1,64 @@
+uncertainties:
+  no_uncertainty:
+    {}
+    
+scenario_independent_parameters:
+  - production_minload # MILP
+  - production_maxload # MILP
+  - production_theta   # MILP
+  - production_theta_dot # MILP
+  - production_technology_matrix # LP
+  - production_potential_capacity # both
+  - production_minimal_capacity # MILP
+  - operational_cost_per_kWh #both
+  - processes_production # both
+  - processes_storage # both
+  - storage_minimal_level # both
+  - storage_efficiency_deposit # both
+  - storage_efficiency_withdrawal # both
+  - storage_potential_capacity # both
+  - storage_minimal_capacity # MILP
+  - storage_reference # both
+  - importable_products # both
+  - exportable_products # both
+  - products # both
+  - objective # both
+  - time_slices # both
+  - next_time_slice # both
+  - time_slice_weight # both
+  - time_slice_duration # both
+  - allow_lost_load # both
+  - value_of_lost_load # both
+  - production_area_per_peak_power # both
+  - maximum_area # both
+  - ts_demand_old_mean # both
+  - ts_demand_old_peak # both
+  - ts_demand_mean_min # LP (ConvexHull)
+  - ts_demand_mean_max # LP (ConvexHull)
+  - ts_demand_peak_min # LP (ConvexHull)
+  - ts_demand_peak_max # LP (ConvexHull)
+  - ts_pricebuy_old_mean # both
+  - ts_pricebuy_old_peak # both
+  - products_demand_nonprop_scaling # both
+  - availability_interpolation_1st_ts # both
+  - availability_interpolation_2nd_ts # both
+  - processes_availability_interpolation # both
+  - production_affect_feas # LP (ConvexHull)
+  - storage_affect_feas # LP (ConvexHull)
+  - demand_mean_affect_feas # LP (ConvexHull)
+  - demand_peak_affect_feas # LP (ConvexHull)
+  - default_search_dir_production # LP (ConvexHull)
+  - default_search_dir_storage # LP (ConvexHull)
+  - default_search_dir_demand_mean # LP (ConvexHull)
+  - default_search_dir_demand_peak # LP (ConvexHull)
+  - min_values_production # LP (ConvexHull)
+  - max_values_production # LP (ConvexHull)
+  - min_values_storage # LP (ConvexHull)
+  - max_values_storage # LP (ConvexHull)
+  - min_values_demand_mean # LP (ConvexHull)
+  - max_values_demand_mean # LP (ConvexHull)
+  - min_values_demand_peak # LP (ConvexHull)
+  - max_values_demand_peak # LP (ConvexHull)
+  - slack # LP (near optimal)
+  - opt_tac # LP (near optimal)
+  - default_search_dir_processes # LP (near optimal)

@@ -1,0 +1,18 @@
+superstructures:
+  superstructure_JP1_8D:
+    B:
+      type: B
+    CHP:
+      type: CHP
+    CC:
+      type: CC
+    AC:
+      type: AC
+    HTHP:
+      type: HTHP
+    PV:
+      type: PV
+    TES:
+      type: TES
+    battery:
+      type: battery

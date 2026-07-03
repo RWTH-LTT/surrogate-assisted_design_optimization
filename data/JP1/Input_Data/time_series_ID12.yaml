@@ -1,0 +1,49 @@
+# Format: 
+# ts_demand_heat: # key of the timeseries, can be chosen arbitrarily
+#   file: ts_demand_heat.csv # name of the .csv file
+#   doc: 'demand of heat' # string that briefly describes the data
+#   product: 'heat' # string that specifies the product
+#   categories: ['demand'] # list of strings for the categories. Only one entry is expected
+#   unit: 'kW' # Unit of timeseries. NOTE: no unit handling is implemented.
+
+ts_demand_heat:
+  file: 'ts_demand_heat.csv'
+  doc: 'demand of heat'
+  product: 'heat'
+  categories: ['demand']
+  unit: 'kW'
+ts_demand_cold:
+  file: 'ts_demand_cold.csv'
+  doc: 'demand of cooling'
+  product: 'cold'
+  categories: ['demand']
+  unit: 'kW'
+ts_demand_el:
+  file: 'ts_demand_el.csv'
+  doc: 'demand of electricity'
+  product: 'electricity'
+  categories: ['demand']
+  unit: 'kW'
+ts_price_el_buy:
+  file: 'ts_price_el_buy.csv'
+  doc: 'electricity buying price'
+  product: 'electricity'
+  categories: ['pricebuy']
+  unit: '€/kWh'
+ts_price_gas_buy:
+  file: 'ts_price_gas_buy.csv'
+  doc: 'natural gas buying price'
+  product: 'gas'
+  categories: ['pricebuy']
+  unit: '€/kWh'
+ts_availability_photovoltaics:
+  file: 'ts_availability_photovoltaics_flensburg.csv'
+  doc: 'availability (power(t)/ nominal_capacity) for photovoltaics'
+  process: 'PV'
+  categories: ['availability']
+  unit: 'kW/kW_peak'
+ts_availability_interpolation_photovoltaics:
+  file: 'ts_availability_pv_interpolate.csv' #Freiburg
+  doc: pv availability is interpolated between the orignal ts and this one
+  categories: ['availability_interpolation']
+  process: PV # only for 'availability'
