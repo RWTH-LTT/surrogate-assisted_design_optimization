@@ -4,11 +4,10 @@
 If you use our repository or any part of it, please cite [10.2139/ssrn.6477860](https://doi.org/10.2139/ssrn.6477860).
 The full information on the publication is also shown below.
 
-**Enhancing Feasibility of Cost-Optimal Energy Systems in Surrogate-Assisted Design
-Optimization**  
-B. Jürgens, K. Reents, N. Baumeister, H. Seele, H. Schricker, N. von der Assen (2026).  
-*Preprint on SSRN.*  
-DOI: [10.2139/ssrn.6477860](https://doi.org/10.2139/ssrn.6477860)
+**Enhancing Feasibility of Cost-Optimal Energy Systems in Surrogate-Assisted Design Optimization**  
+B. Jürgens, K. Reents, N. Baumeister, H. Seele, H. Schricker, N. von der Assen (2027).  
+*Applied Energy*, 427, Part F, 129169.
+DOI: [10.1016/j.apenergy.2026.129169](https://doi.org/10.1016/j.apenergy.2026.129169)
 
 For the data of the Industrial energy system we used in this publication, please also refer to
 [Reinert et al. (2023)](https://doi.org/10.1016/j.compchemeng.2023.108176).
