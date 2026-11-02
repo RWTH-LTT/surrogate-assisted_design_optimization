@@ -1,7 +1,7 @@
 # Enhancing Feasibility of Cost-Optimal Energy Systems in Surrogate-Assisted Design Optimization
 
 ## Referencing
-If you use our repository or any part of it, please cite [10.2139/ssrn.6477860](https://doi.org/10.2139/ssrn.6477860).
+If you use our repository or any part of it, please cite [10.1016/j.apenergy.2026.129169](https://doi.org/10.1016/j.apenergy.2026.129169).
 The full information on the publication is also shown below.
 
 **Enhancing Feasibility of Cost-Optimal Energy Systems in Surrogate-Assisted Design Optimization**  
